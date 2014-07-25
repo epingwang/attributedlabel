@@ -1,7 +1,7 @@
-/*
+/**
  Copyright (c) 2011-present, NimbusKit. All rights reserved.
  Originally created by Roger Chapman
-
+ 
  This source code is licensed under the BSD-style license found in the LICENSE file in the root
  directory of this source tree and at the http://nimbuskit.info/license url. An additional grant of
  patent rights can be found in the PATENTS file in the same directory and url.
@@ -14,27 +14,27 @@
 #if defined __cplusplus
 extern "C" {
 #endif
-
-/**
- * Calculates the ideal dimensions of an attributed string fitting a given size.
- *
- * This calculation is performed off the raw attributed string so this calculation may differ
- * slightly from NIAttributedLabel's use of it due to lack of link and image attributes.
- *
- * This method is used in NIAttributedLabel to calculate its size after all additional
- * styling attributes have been set.
- */
-CGSize NISizeOfAttributedStringConstrainedToSize(NSAttributedString* attributedString, CGSize size, NSInteger numberOfLines);
-
+    
+    /**
+     * Calculates the ideal dimensions of an attributed string fitting a given size.
+     *
+     * This calculation is performed off the raw attributed string so this calculation may differ
+     * slightly from NIAttributedLabel's use of it due to lack of link and image attributes.
+     *
+     * This method is used in NIAttributedLabel to calculate its size after all additional
+     * styling attributes have been set.
+     */
+    CGSize NISizeOfAttributedStringConstrainedToSize(NSAttributedString* attributedString, CGSize size, NSInteger numberOfLines);
+    
 #if defined __cplusplus
 };
 #endif
 
 // Vertical alignments for NIAttributedLabel.
 typedef enum {
-  NIVerticalTextAlignmentTop = 0,
-  NIVerticalTextAlignmentMiddle,
-  NIVerticalTextAlignmentBottom,
+    NIVerticalTextAlignmentTop = 0,
+    NIVerticalTextAlignmentMiddle,
+    NIVerticalTextAlignmentBottom,
 } NIVerticalTextAlignment;
 
 extern NSString* const NIAttributedLabelLinkAttributeName; // Value is an NSTextCheckingResult.
@@ -101,6 +101,7 @@ extern NSString* const NIAttributedLabelLinkAttributeName; // Value is an NSText
 - (void)insertImage:(UIImage *)image atIndex:(NSInteger)index;
 - (void)insertImage:(UIImage *)image atIndex:(NSInteger)index margins:(UIEdgeInsets)margins;
 - (void)insertImage:(UIImage *)image atIndex:(NSInteger)index margins:(UIEdgeInsets)margins verticalTextAlignment:(NIVerticalTextAlignment)verticalTextAlignment;
+- (void)replaceImage:(UIImage *) image atIndex:(NSInteger)index;
 
 - (void)invalidateAccessibleElements;
 
@@ -361,7 +362,7 @@ extern NSString* const NIAttributedLabelLinkAttributeName; // Value is an NSText
  * @fn NIAttributedLabel::setTextColor:range:
  */
 
-/** 
+/**
  * Sets the font for text in a given range.
  *
  * @fn NIAttributedLabel::setFont:range:
